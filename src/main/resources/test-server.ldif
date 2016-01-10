@@ -1,0 +1,48 @@
+dn: ou=groups,dc=springframework,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: groups
+
+dn: ou=rolegroups,ou=groups,dc=springframework,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: rolegroups
+
+dn: ou=accounts,dc=springframework,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: accounts
+
+dn: ou=serviceaccounts,ou=accounts,dc=springframework,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: serviceaccounts
+
+dn: uid=ben,ou=serviceaccounts,ou=accounts,dc=springframework,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Ben Alex
+sn: Alex
+uid: ben
+userPassword: {SHA}nFCebWjxfaLbHHG1Qk5UU4trbvQ=
+
+dn: uid=bob,ou=serviceaccounts,ou=accounts,dc=springframework,dc=org
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Bob Hamilton
+sn: Hamilton
+uid: bob
+userPassword: password
+
+
+dn: cn=SG_Role-Application-Login,ou=rolegroups,ou=groups,dc=springframework,dc=org
+objectclass: top
+objectclass: groupOfNames
+cn: SG_Role-Application-Login
+ou: SG_Role-Application-Login
+uniqueMember: uid=ben,ou=serviceaccounts,ou=accounts,dc=springframework,dc=org
+uniqueMember: uid=bob,ou=serviceaccounts,ou=accounts,dc=springframework,dc=org
