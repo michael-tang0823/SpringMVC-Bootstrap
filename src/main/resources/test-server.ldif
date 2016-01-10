@@ -46,3 +46,19 @@ cn: SG_Role-Application-Login
 ou: SG_Role-Application-Login
 uniqueMember: uid=ben,ou=serviceaccounts,ou=accounts,dc=springframework,dc=org
 uniqueMember: uid=bob,ou=serviceaccounts,ou=accounts,dc=springframework,dc=org
+
+dn: cn=SG_Role-Application-Buyer,ou=rolegroups,ou=groups,dc=springframework,dc=org
+objectclass: top
+objectclass: groupOfNames
+cn: SG_Role-Application-Login
+ou: SG_Role-Application-Login
+uniqueMember: uid=ben,ou=serviceaccounts,ou=accounts,dc=springframework,dc=org
+uniqueMember: uid=bob,ou=serviceaccounts,ou=accounts,dc=springframework,dc=org
+
+dn: cn=SG_Role-Application-Seller,ou=rolegroups,ou=groups,dc=springframework,dc=org
+objectclass: top
+objectclass: groupOfNames
+cn: SG_Role-Application-Login
+ou: SG_Role-Application-Login
+uniqueMember: uid=ben,ou=serviceaccounts,ou=accounts,dc=springframework,dc=org
+uniqueMember: uid=bob,ou=serviceaccounts,ou=accounts,dc=springframework,dc=org
