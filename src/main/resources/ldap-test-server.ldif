@@ -48,12 +48,10 @@ objectclass: groupOfNames
 cn: SG_Role-Application-Buyer
 ou: SG_Role-Application-Buyer
 member: uid=ben,ou=serviceaccounts,ou=accounts,dc=springframework,dc=org
-member: uid=bob,ou=serviceaccounts,ou=accounts,dc=springframework,dc=org
 
 dn: cn=SG_Role-Application-Seller,ou=groups,dc=springframework,dc=org
 objectclass: top
 objectclass: groupOfNames
 cn: SG_Role-Application-Seller
 ou: SG_Role-Application-Seller
-member: uid=ben,ou=serviceaccounts,ou=accounts,dc=springframework,dc=org
 member: uid=bob,ou=serviceaccounts,ou=accounts,dc=springframework,dc=org
