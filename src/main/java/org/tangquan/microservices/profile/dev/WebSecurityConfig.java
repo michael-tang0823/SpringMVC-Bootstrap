@@ -16,35 +16,35 @@ import org.springframework.security.ldap.userdetails.LdapAuthoritiesPopulator;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http
-			.authorizeRequests()
-				.antMatchers("/css/**").permitAll()
-				.anyRequest().fullyAuthenticated()
-				.and()
-			.formLogin();
-	}
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .authorizeRequests()
+                .antMatchers("/css/**").permitAll()
+                .anyRequest().fullyAuthenticated()
+                .and()
+                .formLogin();
+    }
 
-	@Configuration
-	@Profile("dev")
-	protected static class AuthenticationConfiguration extends
-			GlobalAuthenticationConfigurerAdapter {
+    @Configuration
+    @Profile("dev")
+    protected static class AuthenticationConfiguration extends
+            GlobalAuthenticationConfigurerAdapter {
 
-		@Value("${ldap.url}")
-		String ldapUrl;
+        @Value("${ldap.url}")
+        String ldapUrl;
         @Autowired
         LdapAuthoritiesPopulator ldapAuthoritiesPopulator;
 
-		@Override
-		public void init(AuthenticationManagerBuilder auth) throws Exception {
-			auth
-				.ldapAuthentication()
+        @Override
+        public void init(AuthenticationManagerBuilder auth) throws Exception {
+            auth
+                    .ldapAuthentication()
                     .ldapAuthoritiesPopulator(ldapAuthoritiesPopulator)
-					.userDnPatterns("uid={0},ou=serviceaccounts,ou=accounts")
-					.groupSearchBase("ou=groups")
-					.groupSearchFilter("(&(cn=*Application*)(member={0}))")
-					.contextSource().url(ldapUrl);
-		}
-	}
+                    .userDnPatterns("uid={0},ou=serviceaccounts,ou=accounts")
+                    .groupSearchBase("ou=groups")
+                    .groupSearchFilter("(&(cn=*Application*)(member={0}))")
+                    .contextSource().url(ldapUrl);
+        }
+    }
 }
